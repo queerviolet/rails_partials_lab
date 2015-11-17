@@ -26,7 +26,7 @@
 #     #<Color:0x007f8f94766698 @hex="#87A96B", @name="Asparagus", @rgb="(135, 169, 107)">,
 #     #<Color:0x007f8f9473e800 @hex="#9FE2BF", @name="Sea Green", @rgb="(159, 226, 191)">]
 #
-class Color
+class Color < ActiveRecord::Base
   attr_reader :hex, :name, :rgb
   def initialize(**params)
     @hex = params[:hex]
