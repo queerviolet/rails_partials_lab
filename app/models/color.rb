@@ -1,9 +1,11 @@
 # Color is a color with a name, hex, and rgb value.
-# Colors for 133 Crayola crayons are enumerated.
+# Has constants for 133 Crayola colors.
 #
 # Examples:
 #
 # Color::AntiqueBrass
+# => #<Color:0x007f8f94766ee0 @hex="#CD9575", @name="Antique Brass", @rgb="(205, 149, 117)">
+# Color['Antique Brass']
 # => #<Color:0x007f8f94766ee0 @hex="#CD9575", @name="Antique Brass", @rgb="(205, 149, 117)">
 #
 # Color::Aquamarine.hex
@@ -13,7 +15,7 @@
 # Color::PurpleMountainsMajesty.name
 # => "Purple Mountain's Majesty"
 #
-# Color.sample returns random colors.
+# Color.sample returns random named colors.
 #
 # Color.sample
 # => #<Color:0x007f8f94765950 @hex="#FD7C6E", @name="Bittersweet", @rgb="(253, 124, 110)">
@@ -31,6 +33,7 @@ class Color
     @name = params[:name]
     @rgb = params[:rgb]
     Color::ALL << self
+    Color::NAMED[@name] = self
     const_name = @name.gsub(/\s+/, '').gsub("'", '')
     Color.const_set(const_name, self)
   end
@@ -39,7 +42,12 @@ class Color
     ALL.sample(*args)
   end
 
+  def self.[](name)
+    NAMED[name]
+  end
+
   ALL = []
+  NAMED = {}
 end
 
 # Crayola crayon colors.

@@ -1,0 +1,7 @@
+<div class='colors'>
+  <% @colors.each do |color| %>
+  <div class="color" style="background: <%= color.hex %>;">
+    <a href="<%= color.name %>"><%= color.name %></a>
+  </div>
+  <% end %>
+</div>
