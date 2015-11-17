@@ -4,6 +4,14 @@
 2. Use partials with a collections of models.
 3. Pass local variables into a partial.
 
+# Resources
+
+[The Rails guide to partials][rails-partials] will be your friend here.
+
+# Setup
+
+Run `bundle` and `rake db:migrate` first to set up the database.
+
 # Change how we show color names
 
 Currently, we just show the name of the color ("Aquamarine"). We'd like to
@@ -30,3 +38,5 @@ Pass in a local variable to your partial that controls whether the hex color cod
 is rendered, and make it only show up on the single color view.
 
 You'll need to change the tests to reflect the new requirements.
+
+[rails-partials]: http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials "3.4 Using Partials"
