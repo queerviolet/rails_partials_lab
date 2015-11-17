@@ -1,3 +1,8 @@
+
 <div class="color" style="background: <%= color.hex %>;">
-  <a href="<%= color.name %>"><%= color.name %> (<%= color.hex %>)</a>
+  <a href="<%= color.name %>"><%= color.name %>
+    <% if hex_code %>
+      (<%= color.hex %>)
+    <% end %>
+  </a>
 </div>

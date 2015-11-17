@@ -19,9 +19,9 @@ class ColorsControllerTest < ActionController::TestCase
     assert_select '.color', /#{Color::Aquamarine.hex}/
   end
 
-  test "colors in a list have hex codes in their names" do
+  test "colors in a list do not have hex codes in their names" do
     get :show, {colors: 'Aquamarine,Antique Brass'}
-    assert_select '.color', /#{Color::Aquamarine.hex}/
-    assert_select '.color', /#{Color::AntiqueBrass.hex}/
+    assert_select '.color', {count: 0, text: /#{Color::Aquamarine.hex}/}
+    assert_select '.color', {count: 0, text: /#{Color::AntiqueBrass.hex}/}
   end
 end
